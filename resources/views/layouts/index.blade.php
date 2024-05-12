@@ -28,7 +28,7 @@
     <!-- Start MDBootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
+    <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet" />
     <!-- End MDBootstrap -->
 
     <!-- Styles -->
@@ -60,7 +60,7 @@
     </div>
 
     <!-- MDB -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
+    <script src="{{ asset('js/mdb.min.js') }}"></script>
 
     <!-- JQUERY -->
     <script src="{{ asset('js/jquery-3.6.3.min.js') }}"></script>
@@ -116,6 +116,8 @@
 
     </script>
 
+    {{-- TinyMCE --}}
+    <script src="https://cdn.tiny.cloud/1/fioab1f7iscuty6onrm6ezlq795cnlvwjy81btkvag3piuoj/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         tinymce.init({
             selector: 'textarea.tiny'
