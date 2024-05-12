@@ -36,7 +36,7 @@
                         <label for="password"
                             class="control-label">Password</label>
                         <div class="float-right">
-                            <a href="auth-forgot-password.html"
+                            <a href="{{ url('forgot-password') }}"
                                 class="text-small">
                                 Forgot Password?
                             </a>
@@ -71,7 +71,7 @@
                     <button type="submit"
                         class="btn btn-primary btn-lg btn-block"
                         tabindex="4">
-                        Login
+                        Login <i class="fa fa-sign-in"></i>
                     </button>
                 </div>
             </form>
