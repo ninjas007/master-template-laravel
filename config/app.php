@@ -125,6 +125,10 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+    // custom variables
+    'app_name' => env('APPLICATION_NAME'),
+    'short_app_name' => env('SHORT_APPLICATION_NAME'),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers

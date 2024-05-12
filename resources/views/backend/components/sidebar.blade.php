@@ -1,10 +1,10 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="{{ url('/') }}">POS RESTO</a>
+            <a href="{{ url('/') }}">{{ config('app.app_name') }}</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="{{ url('/') }}">PR</a>
+            <a href="{{ url('/') }}">{{ config('app.short_app_name') }}</a>
         </div>
         <ul class="sidebar-menu">
            <li class="menu-header">Dashboard</li>
