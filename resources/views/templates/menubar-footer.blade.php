@@ -13,7 +13,7 @@
             </button>
         </a>
         <a href="#">
-            <button class="btn-menubar" data-mdb-toggle="modal" data-mdb-target="#modalPilihTemplate">
+            <button class="btn-menubar">
                 <i class="fa fa-users color-2" style="width: 24px; height: 24px; font-size: 20px"></i>
                 <span class="color-2" style="font-size: 10px">Mentor</span>
             </button>

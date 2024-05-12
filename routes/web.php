@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\GoogleLoginController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Backend\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +20,15 @@ Route::get('/google/callback', [GoogleLoginController::class, 'handleGoogleCallb
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index']);
+
+Route::post('/signup', [AuthController::class, 'signup']);
+
+
+// backend
+Route::get('/admin', function() {
+    return redirect('admin/dashboard');
+});
+
+Route::prefix('admin')->middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+});

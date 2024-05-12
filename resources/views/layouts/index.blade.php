@@ -32,7 +32,7 @@
     <!-- End MDBootstrap -->
 
     <!-- Styles -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style1.css') }}" rel="stylesheet">
 
     @yield('css')
 </head>
@@ -50,6 +50,7 @@
 
 
         @include('modals.modal-login')
+        @include('modals.modal-register')
 
         @if (auth()->check())
             @include('modals.modal-akun')
@@ -62,13 +63,16 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
 
     <!-- JQUERY -->
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
-        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/jquery-3.6.3.min.js') }}"></script>
 
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    {{-- Sweet Alert --}}
+    <script src="{{ asset('js/sweetalert.min.js') }}"></script>
+
+    {{-- Custom JS --}}
     @yield('js')
+
+    {{-- Sweet Alert JS --}}
     <script type="text/javascript">
-        var template_use = 1;
         var storage = [];
 
         @if (Session::has('success'))
@@ -100,19 +104,14 @@
             }
         });
 
-        function pakaiTemplate() {
-            template_use = $('input[name="template"]:checked').val();
+        function signup() {
+            $('#modalLogin').modal('hide');
+            $('#modalRegister').modal('show');
+        }
 
-            $('#templateUse').val(template_use);
-
-            swal({
-                title: "Berhasil!",
-                text: "Berhasil pilih template",
-                icon: "success",
-                button: "Ok",
-            }).then(() => {
-                $('#modalPilihTemplate').modal('hide');
-            });
+        function login() {
+            $('#modalLogin').modal('show');
+            $('#modalRegister').modal('hide');
         }
 
     </script>

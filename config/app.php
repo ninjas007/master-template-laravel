@@ -1,5 +1,7 @@
 <?php
 
+use Laravel\Fortify\Features;
+
 return [
 
     /*
@@ -174,6 +176,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\FortifyServiceProvider::class,
 
     ],
 
@@ -228,5 +231,16 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
+
+    'features' => [
+        Features::registration(),
+        Features::resetPasswords(),
+        // Features::emailVerification(),
+        Features::updateProfileInformation(),
+        Features::updatePasswords(),
+        Features::twoFactorAuthentication([
+           'confirmPassword' => true,
+        ]),
+     ],
 
 ];
