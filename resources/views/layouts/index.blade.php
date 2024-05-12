@@ -93,17 +93,6 @@
             });
         @endif
 
-        $('.show_pass').click(function() {
-            const name = $(this).data('name'); // name element should be data-name
-            const type = $(`input[name="${name}"]`).attr('type');
-
-            if (type == 'text') {
-                $(`input[name="${name}"]`).attr('type', 'password') // class name should be data-name
-            } else {
-                $(`input[name="${name}"]`).attr('type', 'text')
-            }
-        });
-
         function signup() {
             $('#modalLogin').modal('hide');
             $('#modalRegister').modal('show');
@@ -115,6 +104,9 @@
         }
 
     </script>
+
+    {{-- show password --}}
+    <script src="{{ asset('js/js-password.js') }}"></script>
 
     {{-- TinyMCE --}}
     <script src="https://cdn.tiny.cloud/1/fioab1f7iscuty6onrm6ezlq795cnlvwjy81btkvag3piuoj/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>

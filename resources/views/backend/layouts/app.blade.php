@@ -72,6 +72,29 @@
     <!-- Template JS File -->
     <script src="{{ asset('js/scripts.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
+
+    {{-- show password --}}
+    <script src="{{ asset('js/js-password.js') }}"></script>
+
+    <script>
+        @if (Session::has('success'))
+            swal({
+                title: "Berhasil!",
+                text: "{{ Session::get('success') }}",
+                icon: "success",
+                button: "Ok",
+            });
+        @endif
+
+        @if (Session::has('error'))
+            swal({
+                title: "Gagal!",
+                text: "{{ Session::get('error') }}",
+                icon: "warning",
+                button: "Ok",
+            });
+        @endif
+    </script>
 </body>
 
 </html>

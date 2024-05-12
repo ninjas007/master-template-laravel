@@ -42,12 +42,15 @@
                             </a>
                         </div>
                     </div>
-                    <input id="password"
-                        type="password"
-                        class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
-                        name="password"
-                        tabindex="2"
-                        required>
+                    <div class="input-group">
+                        <input type="password" class="form-control @error('password') is-invalid @enderror"
+                            name="password" tabindex="2" required>
+                        <div class="input-group-prepend" onclick="showPassword('password')">
+                            <div class="input-group-text">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                        </div>
+                    </div>
                     @error('password')
                         <div class="invalid-feedback">
                             {{ $message }}

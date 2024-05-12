@@ -70,6 +70,9 @@
     <!-- Template JS File -->
     <script src="{{ asset('js/scripts.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
+
+    {{-- show password --}}
+    <script src="{{ asset('js/js-password.js') }}"></script>
 </body>
 
 </html>

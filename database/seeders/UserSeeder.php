@@ -19,6 +19,10 @@ class UserSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'tiliztiadi@gmail.com',
             'password' => Hash::make('admin'),
+            'role' => 'admin',
+            'email_verified_at' => now(),
+            'is_active' => 1,
+            'avatar' => 'img/avatar/avatar-1.png',
         ]);
     }
 }

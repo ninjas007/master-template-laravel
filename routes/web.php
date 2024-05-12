@@ -4,6 +4,7 @@ use App\Http\Controllers\GoogleLoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +32,11 @@ Route::get('/admin', function() {
 
 Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/general-dashboard', [DashboardController::class, 'index']);
+
+    // profile
+    Route::prefix('profile')->group(function () {
+        Route::get('/', [ProfileController::class, 'index']);
+        Route::post('/update', [ProfileController::class, 'update'])->name('profile.update');
+    });
 });
