@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\GoogleLoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
@@ -17,23 +18,34 @@ use App\Http\Controllers\Backend\ProfileController;
 |
 */
 // login socialite
-Route::get('/google/redirect', [GoogleLoginController::class, 'redirectToGoogle'])->name('google.redirect');
-Route::get('/google/callback', [GoogleLoginController::class, 'handleGoogleCallback'])->name('google.callback');
-
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/auth/{provider}', [AuthController::class, 'redirectProvider'])->name('redirect.provider');
+Route::get('/google/callback', [AuthController::class, 'callbackGoogle'])->name('google.callback');
+Route::get('/facebook/callback', [AuthController::class, 'callbackFacebook'])->name('facebook.callback');
 
 // auth frontend
 Route::post('/loginUser', [AuthController::class, 'login'])->name('login.user');
 Route::post('/signupUser', [AuthController::class, 'signup'])->name('signup.user');
 
+// frontend
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+// account
+Route::prefix('account')
+->middleware(['auth', 'user'])
+->group(function () {
+    Route::get('/profile', [AccountController::class, 'index']);
+    Route::post('/save', [AccountController::class, 'save'])->name('account.save');
+});
 
 // backend
 Route::get('/admin', function() {
     return redirect('admin/dashboard');
 });
 
-Route::prefix('admin')->middleware(['auth'])->group(function () {
+Route::prefix('admin')
+->middleware(['auth', 'admin'])
+->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);
     Route::get('/general-dashboard', [DashboardController::class, 'index']);
 

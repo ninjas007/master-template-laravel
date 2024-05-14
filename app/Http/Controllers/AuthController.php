@@ -7,6 +7,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
 {
@@ -70,5 +71,33 @@ class AuthController extends Controller
         return response()->json([
             'message' => 'Login successful',
         ], 200);
+    }
+
+    public function redirectProvider($provider = 'google')
+    {
+        return Socialite::driver($provider)->redirect();
+    }
+
+    public function callbackGoogle()
+    {
+        $userSocialite = Socialite::driver('google')->user();
+        $user = User::where('email', $userSocialite->getEmail())->first();
+
+        if($user){
+            auth()->login($user, true);
+
+            return redirect('home')->with(['success' => 'Berhasil login']);
+        }
+
+        $user = User::create([
+            'email'             => $userSocialite->getEmail(),
+            'name'              => $userSocialite->getName(),
+            'password'          => Hash::make(''),
+            'email_verified_at' => now()
+        ]);
+
+        auth()->login($user, true);
+
+        return redirect('home')->with(['success' => 'Berhasil login']);
     }
 }

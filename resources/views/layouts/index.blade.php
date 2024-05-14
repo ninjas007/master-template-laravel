@@ -42,7 +42,7 @@
         <div class="body-wrap">
             <div class="body">
                 @include('templates.header')
-                <div class="body-content">
+                <div class="body-content" style="padding-bottom: 50px">
                     @yield('content')
                 </div>
             </div>

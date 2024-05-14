@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Hash;
 
 class BaseRepository
 {
@@ -21,7 +22,7 @@ class BaseRepository
     public function update($id, array $attributes)
     {
         $record = $this->find($id);
-        $attributes = $this->excludePasswordIfNull($attributes);
+        $attributes = $this->handleRequestPassword($attributes);
 
         if ($record) {
             $record->update($attributes);
@@ -44,11 +45,13 @@ class BaseRepository
         return false;
     }
 
-    public function excludePasswordIfNull(array $data)
+    public function handleRequestPassword(array $data)
     {
         if (isset($data['password']) || empty($data['password'])) {
             if ($data['password'] == '') {
                 unset($data['password']);
+            } else {
+                $data['password'] = Hash::make($data['password2']);
             }
         }
 

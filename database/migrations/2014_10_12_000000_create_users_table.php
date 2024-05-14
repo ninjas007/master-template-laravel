@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable();
             $table->string('avatar')->default('img/avatar/avatar-1.png');
             $table->enum('gender', ['male', 'female'])->nullable();
-            $table->date('birthday')->nullable();
+            $table->timestamp('birthday')->nullable();
             $table->string('address')->nullable();
             $table->rememberToken();
             $table->timestamps();

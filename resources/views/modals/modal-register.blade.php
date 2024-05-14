@@ -6,20 +6,6 @@
                 <div class="row">
                     <div class="col-md-12 p-5">
                         <form id="registerForm" method="post">
-                            <div class="text-center mb-3">
-                                <p>Sign up with:</p>
-                                <button type="button" class="btn btn-secondary btn-floating mx-1">
-                                    <i class="fab fa-facebook-f"></i>
-                                </button>
-
-                                <button type="button" class="btn btn-secondary btn-floating mx-1">
-                                    <i class="fab fa-google"></i>
-                                </button>
-
-                            </div>
-
-                            <p class="text-center">or:</p>
-
                             <div class="form-group mb-3">
                                 <label class="label-form" for="email2">Email</label>
                                 <input type="text" id="email2" class="form-control"

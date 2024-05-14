@@ -12,6 +12,9 @@
                         <ul class="list-group list-group-light mb-3">
                             <li class="list-group-item disabled" aria-disabled="true">{{ auth()->user()->name }}</li>
                             <li class="list-group-item">{{ auth()->user()->email }}</li>
+                            <li class="list-group-item">
+                                <a href="{{ url('account/profile') }}">Change Profile</a>
+                            </li>
                         </ul>
                     </div>
                 </div>

@@ -9,13 +9,13 @@
                             @csrf
                             <div class="text-center mb-3">
                                 <p>Login with:</p>
-                                <button type="button" class="btn btn-secondary btn-floating mx-1">
+                                {{-- <a href="{{ url('auth/facebook') }}" class="btn btn-secondary btn-lg btn-floating mx-1" title="Login with Facebook">
                                     <i class="fab fa-facebook-f"></i>
-                                </button>
+                                </a> --}}
 
-                                <button type="button" class="btn btn-secondary btn-floating mx-1">
+                                <a href="{{ url('auth/google') }}" class="btn btn-danger btn-lg btn-floating mx-1" title="Login with Google">
                                     <i class="fab fa-google"></i>
-                                </button>
+                                </a>
 
                             </div>
 
