@@ -16,13 +16,16 @@ use App\Http\Controllers\Backend\ProfileController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// login socialite
 Route::get('/google/redirect', [GoogleLoginController::class, 'redirectToGoogle'])->name('google.redirect');
 Route::get('/google/callback', [GoogleLoginController::class, 'handleGoogleCallback'])->name('google.callback');
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/home', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::post('/signup', [AuthController::class, 'signup']);
+// auth frontend
+Route::post('/loginUser', [AuthController::class, 'login'])->name('login.user');
+Route::post('/signupUser', [AuthController::class, 'signup'])->name('signup.user');
 
 
 // backend

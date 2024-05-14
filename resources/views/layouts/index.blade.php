@@ -92,18 +92,10 @@
                 button: "Ok",
             });
         @endif
-
-        function signup() {
-            $('#modalLogin').modal('hide');
-            $('#modalRegister').modal('show');
-        }
-
-        function login() {
-            $('#modalLogin').modal('show');
-            $('#modalRegister').modal('hide');
-        }
-
     </script>
+
+    {{-- Auth JS --}}
+    @include('js.auth')
 
     {{-- show password --}}
     <script src="{{ asset('js/js-password.js') }}"></script>

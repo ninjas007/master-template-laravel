@@ -24,5 +24,15 @@ class UserSeeder extends Seeder
             'is_active' => 1,
             'avatar' => 'img/avatar/avatar-1.png',
         ]);
+
+        User::create([
+            'name' => 'User',
+            'email' => 'tilistiadi03@gmail.com',
+            'password' => Hash::make('user'),
+            'role' => 'user',
+            'email_verified_at' => now(),
+            'is_active' => 1,
+            'avatar' => 'img/avatar/avatar-1.png',
+        ]);
     }
 }
