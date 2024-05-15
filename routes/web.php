@@ -29,12 +29,13 @@ Route::post('/signupUser', [AuthController::class, 'signup'])->name('signup.user
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-// account
-Route::prefix('account')
-->middleware(['auth', 'user'])
-->group(function () {
-    Route::get('/profile', [AccountController::class, 'index']);
-    Route::post('/save', [AccountController::class, 'save'])->name('account.save');
+// route middleware
+Route::middleware(['auth', 'user'])->group(function () {
+    // account
+    Route::prefix('account')->group(function () {
+        Route::get('/profile', [AccountController::class, 'index']);
+        Route::post('/save', [AccountController::class, 'save'])->name('account.save');
+    });
 });
 
 // backend
