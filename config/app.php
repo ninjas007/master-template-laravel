@@ -2,6 +2,9 @@
 
 use Laravel\Fortify\Features;
 
+// get file json from settings/app.json
+$app = json_decode(file_get_contents(base_path('settings/app.json')), true);
+
 return [
 
     /*
@@ -15,7 +18,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => $app['name'],
 
     /*
     |--------------------------------------------------------------------------
@@ -126,8 +129,8 @@ return [
     'cipher' => 'AES-256-CBC',
 
     // custom variables
-    'app_name' => env('APPLICATION_NAME'),
-    'short_app_name' => env('SHORT_APPLICATION_NAME'),
+    'app_name' => $app['app_name'],
+    'short_app_name' => $app['short_app_name'],
 
     /*
     |--------------------------------------------------------------------------

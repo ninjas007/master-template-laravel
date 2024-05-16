@@ -70,7 +70,7 @@
 
                                     <div class="form-group">
                                         <label>Birthday</label>
-                                        <input type="date" class="form-control" name="birthday" value="{{ $user->birthday }}">
+                                        <input type="date" class="form-control" name="birthday" value="{{ old('birthday', \Carbon\Carbon::parse($user->birthday)->format('Y-m-d')) }}">
                                     </div>
 
                                     <div class="form-group">

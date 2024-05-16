@@ -6,6 +6,7 @@
 /node_modules
 /storage
 /vendor
+/settings/app.json
 .env
 .env.backup
 .phpunit.result.cache

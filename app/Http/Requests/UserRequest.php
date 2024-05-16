@@ -17,6 +17,8 @@ class UserRequest extends FormRequest
         $rules = [
             'name' => 'required',
             'email' => 'required|email',
+            'gender' => 'nullable|in:male,female',
+            'birthday' => 'nullable|date_format:Y-m-d',
             'password' => [
                 'nullable',
                 'string',
